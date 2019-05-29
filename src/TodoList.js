@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Todo from './Todo'
 
 import Paper from '@material-ui/core/Paper'
@@ -11,7 +11,7 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
       <Paper>
         <List>
           {todos.map((todo, i) => (
-            <>
+            <Fragment key={todo.id}>
               <Todo
                 {...todo}
                 key={todo.id}
@@ -21,7 +21,7 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
               />
 
               {i < todos.length - 1 ? <Divider /> : null}
-            </>
+            </Fragment>
           ))}
         </List>
       </Paper>
